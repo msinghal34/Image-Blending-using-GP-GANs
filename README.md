@@ -22,7 +22,7 @@
 	Change hyperparameters as desired
 	Run the train function
 
-#Instructions to Blend
+# Instructions to Blend
 	run the script blend.py with arguments 
 		-src source_img
 		-dest dest_img
@@ -41,3 +41,5 @@
 ![Composite](images/composite.png)
 ![Result from pyramid](images/pyramidresult.png)
 ![Output of Blenfing GAN](images/networkres.png)
+
+Look at ImageBlending.ipynb for understanding code
