@@ -22,6 +22,9 @@ import argparse
 import PyramidBlending
 import blendingSGD
 
+dtype = torch.double
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 
 if __name__=='__main__':
 	parser = argparse.ArgumentParser()
@@ -33,7 +36,8 @@ if __name__=='__main__':
 	args = parser.parse_args()
 
 	net = model.Net()
-	net = net.load_state_dict(torch.load(args.model))
+	net.load_state_dict(torch.load(args.model))
+	net.to(dtype=dtype, device=device)
 	src = torch.tensor(cv2.cvtColor(cv2.imread(args.src), cv2.COLOR_BGR2RGB),dtype=dtype,device=device)
 	dest = torch.tensor(cv2.cvtColor(cv2.imread(args.dest), cv2.COLOR_BGR2RGB),dtype=dtype,device=device)
 	mask = torch.tensor(cv2.cvtColor(cv2.imread(args.mask), cv2.COLOR_BGR2RGB),dtype=dtype,device=device)
@@ -43,11 +47,11 @@ if __name__=='__main__':
 
 
 	plt.figure()
-	plt.imshow(src/255)
+	plt.imshow(src.cpu()/255)
 	plt.title('source')
 
 	plt.figure()
-	plt.imshow(dest/255)
+	plt.imshow(dest.cpu()/255)
 	plt.title('Destination')
 
 	plt.figure()
@@ -59,5 +63,5 @@ if __name__=='__main__':
 	plt.title('Pyramid Blending')
 
 	plt.figure()
-	plt.imshow(res2/255)
+	plt.imshow(res2)
 	plt.title('GP SGD')

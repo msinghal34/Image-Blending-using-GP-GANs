@@ -20,6 +20,23 @@ dtype = torch.double
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
+
+def getGaussian(img):
+  Gaussian = torch.tensor([[[[1,2,1],[2,4,2],[1,2,1]]]],device=device,dtype=dtype)
+  img_b = torch.stack([torch.nn.functional.conv2d(img[:,:,0].unsqueeze(0).unsqueeze(0), Gaussian,stride=1, padding=1)[0,0]
+               ,torch.nn.functional.conv2d(img[:,:,1].unsqueeze(0).unsqueeze(0), Gaussian,stride=1, padding=1)[0,0]
+               ,torch.nn.functional.conv2d(img[:,:,2].unsqueeze(0).unsqueeze(0), Gaussian,stride=1, padding=1)[0,0]]).permute(1,2,0)
+  return img_b
+  
+def getLaplacian(img):
+  Laplacian = torch.tensor([[[[-1,-1,-1],[-1,8,-1],[-1,-1,-1]]]],device=device,dtype=dtype)
+  img_blurr = img
+  return torch.stack([torch.nn.functional.conv2d(img_blurr[:,:,0].unsqueeze(0).unsqueeze(0), Laplacian,stride=1, padding=1)[0,0]
+               ,torch.nn.functional.conv2d(img_blurr[:,:,1].unsqueeze(0).unsqueeze(0), Laplacian,stride=1, padding=1)[0,0]
+               ,torch.nn.functional.conv2d(img_blurr[:,:,2].unsqueeze(0).unsqueeze(0), Laplacian,stride=1, padding=1)[0,0]]).permute(1,2,0)
+
+
+
 def solveGP(Lsrc, Ldest, mask, xl):
   """
   Solving the GP equation and returns approximate solution using Gradient Descent
