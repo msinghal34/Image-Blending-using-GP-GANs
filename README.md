@@ -21,10 +21,10 @@
 
 # Results
 
-Source ![](images/src.png)
-Destination ![](images/dest.png)
-Mask ![](images/mask.png)
-Composite ![](images/composite.png)
-Result ![](images/pyramidresult.png)
+![](images/src.png)
+![](images/dest.png)
+![](images/mask.png)
+![](images/composite.png)
+![](images/pyramidresult.png)
 
 
