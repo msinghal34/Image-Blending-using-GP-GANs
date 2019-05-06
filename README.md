@@ -35,13 +35,24 @@ run the script blend.py with arguments
 ## References 
 GP-GAN: Towards Realistic High-Resolution Image Blending https://arxiv.org/pdf/1703.07195.pdf
 
-## Results
+## Results 
 
-![Source Image](images/src.png)
-![Destination Image](images/dest.png)
-![Mask](images/mask.png)
-![Composite](images/composite.png)
-![Result from pyramid](images/pyramidresult.png)
-![Output of Blenfing GAN](images/networkres.png)
+Result1
+
+![Source Image](images/obs1/src.png)
+![Destination Image](images/obs1/dest.png)
+![Mask](images/obs1/mask.png)
+![Composite](images/obs1/composite.png)
+![Result from pyramid](images/obs1/pyramidresult.png)
+<!-- ![Output of Blenfing GAN](images/obs1/networkres.png) -->
+
+Result2
+
+![Source Image](images/obs2/src.png)
+![Destination Image](images/obs2/dest.png)
+![Mask](images/obs2/mask.png)
+![Composite](images/obs2/composite.png)
+![Result from pyramid](images/obs2/pyramidresult.png)
+<!-- ![Output of Blenfing GAN](images/obs2/networkres.png) -->
 
 Look at ImageBlending.ipynb for understanding code
