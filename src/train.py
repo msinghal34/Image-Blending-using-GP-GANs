@@ -21,6 +21,43 @@ dtype = torch.double
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
+def savedata(dir):
+  """ 
+  It returns two tensors 
+  First one consisting of composited images and Second original image
+  Size of each tensor = batch_size X 3 X 64 X 64
+  """
+
+  os.chdir("../data/"+dir+"/")
+  folders = next(os.walk('.'))[1]
+  data = []
+  for folder in folders:
+    print(folder)
+    os.chdir(folder)
+    l = next(os.walk('.'))[2]
+    scene_list=[]
+    for t in range(len(l)) :
+    
+      img = cv2.cvtColor(cv2.imread(l[t]), cv2.COLOR_BGR2RGB)
+      img = img/255.0    
+
+      height , width = img.shape[:2]
+      steps = 8
+      
+      t = int(max(2**math.ceil(math.log(height,2)),2**math.ceil(math.log(width,2))))
+      img = cv2.resize(img, (t, t), interpolation=cv2.INTER_NEAREST)
+      
+      
+      while(t!=64):
+        t=int(t//2)
+        img = cv2.pyrDown(img)a
+      img = np.moveaxis(img, -1, 0)
+      scene_list.append(img)
+    data.append(scene_list)
+    os.chdir('..')
+  os.chdir("../../src/")
+  torch.save(data,"../data/"+dir+".bin")
+
 
 def readBatch(batch_size, data):
   """ 
