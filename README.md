@@ -6,7 +6,9 @@ Given two images source, destination and a mask, it is to blend destination into
 ## Approaches tried
 We implemented an encoder-decoder network which takes low resolution(64X64) composite image(source cropped onto destination) and generates a low resolution image(64X64) which looks more natural than the composite.
 Using this low resolution image and using Laplacian pyramid we tried to optimize Gaussian-Poisson Equation
+
 i) By gradient Descent
+
 ii) Pyramid Blending
 
 
