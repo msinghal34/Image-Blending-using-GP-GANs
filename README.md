@@ -1,28 +1,28 @@
 # Image-Blending-using-GP-GANs
 
-# Goal
+## Goal
 	Given two images source, destination and a mask, it is to blend destination into source in a manner that is visually appealing.
 
-# Approaches tried
+## Approaches tried
 	We implemented an encoder-decoder network which takes low resolution(64X64) composite image(source cropped onto destination) and generates a low resolution image(64X64) which looks more natural than the composite.
 	Using this low resolution image and using Laplacian pyramid we tried to optimize Gaussian-Poisson Equation
 	i) By gradient Descent
 	ii) Pyramid Blending
 
 
-# Dependencies
+## Dependencies
 	pytorch
 	cv2
 	numpy
 
-# Instructions to Train
+## Instructions to Train
 	Download the data from https://www.cse.iitb.ac.in/~charith/aligned_images.tar
 	Create train test splits
 	Create low resolution data by using savedata(train) in src/train.py
 	Change hyperparameters as desired
 	Run the train function
 
-# Instructions to Blend
+## Instructions to Blend
 	run the script blend.py with arguments 
 		-src source_img
 		-dest dest_img
@@ -30,10 +30,10 @@
 		-model path_to_network_weights 
 
 
-# References 
+## References 
 	GP-GAN: Towards Realistic High-Resolution Image Blending https://arxiv.org/pdf/1703.07195.pdf
 
-# Results
+## Results
 
 ![Source Image](images/src.png)
 ![Destination Image](images/dest.png)
