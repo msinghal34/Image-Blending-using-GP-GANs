@@ -18,3 +18,13 @@
 
 # References 
 	GP-GAN: Towards Realistic High-Resolution Image Blending https://arxiv.org/pdf/1703.07195.pdf
+
+# Results
+
+Source ![](images/src.png)
+Destination ![](images/dest.png)
+Mask ![](images/mask.png)
+Composite ![](images/composite.png)
+Result ![](images/pyramidresult.png)
+
+
