@@ -16,22 +16,22 @@
 	numpy
 
 ## Instructions to Train
-	Download the data from https://www.cse.iitb.ac.in/~charith/aligned_images.tar
-	Create train test splits
-	Create low resolution data by using savedata(train) in src/train.py
-	Change hyperparameters as desired
-	Run the train function
+Download the data from https://www.cse.iitb.ac.in/~charith/aligned_images.tar
+Create train test splits
+Create low resolution data by using savedata(train) in src/train.py
+Change hyperparameters as desired
+Run the train function
 
 ## Instructions to Blend
-	run the script blend.py with arguments 
-		-src source_img
-		-dest dest_img
-		-mask mask_img
-		-model path_to_network_weights 
+run the script blend.py with arguments 
+	-src source_img
+	-dest dest_img
+	-mask mask_img
+	-model path_to_network_weights 
 
 
 ## References 
-	GP-GAN: Towards Realistic High-Resolution Image Blending https://arxiv.org/pdf/1703.07195.pdf
+GP-GAN: Towards Realistic High-Resolution Image Blending https://arxiv.org/pdf/1703.07195.pdf
 
 ## Results
 
