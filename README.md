@@ -51,7 +51,7 @@ Result2
 ![Source Image](images/obs2/src.png)
 ![Destination Image](images/obs2/dest.png)
 ![Mask](images/obs2/mask.png)
-![Composite](images/obs2/composite.png)
+![Composite](images/obs2/composite1.png)
 ![Result from pyramid](images/obs2/pyramidresult.png)
 <!-- ![Output of Blenfing GAN](images/obs2/networkres.png) -->
 
