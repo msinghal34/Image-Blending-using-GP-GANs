@@ -75,14 +75,9 @@ def pyramidBlending(src,dest,mask,net):
   comp_I = comp_I/255
   
 
-  plt.imshow(comp_I)
-  plt.figure()
   xl = net(torch.tensor(comp_I,dtype=dtype,device=device).permute(2,0,1).unsqueeze(0))[0].permute(1,2,0).cpu().detach().numpy()
-  print(xl.shape)
-  plt.imshow(xl)
-  plt.figure()
   xl = xl*255
-#   xl = comp_I*255
+
   
   xh = xl
   for i in range(0,len(comp_L)):

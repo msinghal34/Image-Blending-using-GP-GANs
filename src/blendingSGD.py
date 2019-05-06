@@ -46,7 +46,6 @@ def solveGP(Lsrc, Ldest, mask, xl):
   mask.size() = [l, b]
   """ 
   
-#   print(Lsrc.size(),xl.size())
   Lsrc = Lsrc.clone().detach()
   Ldest = Ldest.clone().detach()
   mask = mask.clone().detach()
@@ -54,26 +53,21 @@ def solveGP(Lsrc, Ldest, mask, xl):
   Lcomp[mask==1] = Ldest[mask==1]
   Lcomp = Lcomp.detach().clone()
   xl = xl.clone().detach()
-#   xh = xl
   xh = xl.clone().detach().requires_grad_(True)
 
   
   optimizer = torch.optim.SGD([xh], lr=0.1)
 
   c = nn.MSELoss()
-  
-#   print(xh-xl)
-#   print(Lcomp-getLaplacian(xh))
+
   
   for i in range(10000):
     if((i+1)%1000==0):
       optimizer.param_groups[0]['lr'] /= 2.5
     loss = c(getGaussian(xh), xl) + c(Lcomp, getLaplacian(xh))     # GP-loss
-#     print(loss)
     optimizer.zero_grad()
     loss.backward()
     optimizer.step()
-  # print(loss)
   return xh
 
 

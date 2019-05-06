@@ -57,11 +57,14 @@ if __name__=='__main__':
 	plt.figure()
 	plt.imshow(comp/255)
 	plt.title('Composite Img')
+	plt.savefig('./images/composite.png')
 
 	plt.figure()
 	plt.imshow(res1/255)
 	plt.title('Pyramid Blending')
+	plt.savefig('./images/pyramidBlending.png')
 
 	plt.figure()
 	plt.imshow(res2)
 	plt.title('GP SGD')
+	plt.savefig('./images/SGDBlending.png')
