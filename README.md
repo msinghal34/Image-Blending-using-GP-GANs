@@ -1,4 +1,4 @@
-# Image-Blending-using-GP-GANs
+# Image-Blending-using-Deep-Learning
 
 ## Goal
 Given two images source, destination and a mask, it is to blend destination into source in a manner that is visually appealing.
